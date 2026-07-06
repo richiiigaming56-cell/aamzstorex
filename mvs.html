@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aamz's Premium Store | Murder Vs Sheriff</title>
+  <link rel="icon" type="image/x-icon" href="https://cdn-icons.com/512/906/906377.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://js.stripe.com/v3/"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header / Navigation -->
+  <header>
+    <div class="container navbar">
+      <div class="logo">
+        <i data-lucide="zap" class="logo-icon"></i>
+        <span>Aamz<span class="gradient-text">.store</span></span>
+      </div>
+      <nav class="nav-links">
+        <a href="bots.html" class="nav-link"><i data-lucide="bot"></i> Discord Bots</a>
+        <a href="servers.html" class="nav-link"><i data-lucide="message-square"></i> Servers</a>
+        <a href="mvs.html" class="nav-link active"><i data-lucide="sword"></i> Murder Vs Sheriff</a>
+        <a href="robux.html" class="nav-link"><i data-lucide="coins"></i> Roblox Gamepass</a>
+        <a href="admin.html" class="nav-link"><i data-lucide="shield-alert"></i> Admin</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="cart-toggle-btn" id="cartToggleBtn" onclick="toggleCart()">
+          <i data-lucide="shopping-bag"></i>
+          <span class="cart-badge" id="cartBadge">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container store-container">
+    <!-- MVS Section -->
+    <section id="mvs" class="store-section scroll-mt">
+      <div class="section-header flex-header">
+        <div class="section-title-wrap">
+          <i data-lucide="sword" class="section-icon text-blue"></i>
+          <h2>Murder Vs Sheriff (MVS) Shop</h2>
+        </div>
+        <div class="mvs-filters">
+          <div class="search-box">
+            <i data-lucide="search"></i>
+            <input type="text" id="mvsSearch" placeholder="Search weapons/sets..." oninput="filterMvsItems()">
+          </div>
+          <select id="mvsCategorySelect" onchange="filterMvsItems()">
+            <option value="all">All Categories</option>
+            <!-- options populated in script -->
+          </select>
+        </div>
+      </div>
+      <div class="mvs-items-grid" id="mvsItemsGrid"></div>
+    </section>
+  </main>
+
+  <!-- Sliding Shopping Cart Overlay -->
+  <div class="cart-overlay" id="cartOverlay">
+    <div class="cart-sidebar">
+      <div class="cart-header">
+        <h3><i data-lucide="shopping-cart"></i> Your Order Summary</h3>
+        <button class="close-cart-btn" onclick="toggleCart()">&times;</button>
+      </div>
+      <div class="cart-body" id="cartBody">
+        <div class="empty-cart-msg" id="emptyCartMsg">
+          <i data-lucide="shopping-bag" class="huge-icon"></i>
+          <p>Your cart is empty.</p>
+          <p class="secondary-text">Select items from the categories above to build your order.</p>
+        </div>
+        <div class="cart-items-list" id="cartItemsList"></div>
+      </div>
+      <div class="cart-footer">
+        <div class="cart-total-row">
+          <span>Subtotal:</span>
+          <span class="total-price" id="cartTotalVal">$0.00</span>
+        </div>
+        <div class="discount-section" style="margin-top:0.5rem; display:flex; gap:0.5rem; align-items:center;">
+          <input type="text" id="discountInput" placeholder="Discount code" style="padding:0.3rem 0.5rem; border-radius:4px; border:none;"/>
+          <button class="btn btn-outline-cyan" onclick="applyDiscountFromInput()">Apply</button>
+        </div>
+        <div class="cart-actions-column">
+          <button class="btn btn-stripe w-100" id="checkoutBtn" onclick="processStripeCheckout()">
+            <i data-lucide="credit-card"></i> Pay Securely with Stripe
+          </button>
+          <div class="checkout-divider"><span>OR CHOOSE TICKET WAY</span></div>
+          <button class="btn btn-outline-cyan w-100" onclick="copyDiscordOrderMessage()">
+            <i data-lucide="copy"></i> Copy Discord Order Ticket
+          </button>
+          <span class="copied-indicator" id="copiedIndicator">Copied order text to clipboard!</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sticky order badge -->
+  <div class="floating-checkout-badge" id="floatingCartBadgeBtn" onclick="toggleCart()">
+    <i data-lucide="shopping-cart"></i>
+    <span class="count" id="floatingCartCount">0</span>
+    <span class="total" id="floatingCartTotal">$0.00</span>
+  </div>
+
+  <footer>
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <div class="logo"><i data-lucide="zap" class="logo-icon"></i><span>Aamz<span class="gradient-text">.store</span></span></div>
+        <p>Premium systems, bots, and gaming virtual goods catalog.</p>
+      </div>
+      <div class="footer-links">
+        <a href="bots.html">Discord Bots</a>
+        <a href="servers.html">Discord Servers</a>
+        <a href="mvs.html">Murder Vs Sheriff Items</a>
+        <a href="robux.html">Roblox Exchange</a>
+      </div>
+      <div class="footer-meta">
+        <p>&copy; 2026 Aamz.store. All rights reserved. Not affiliated with Discord Inc. or Roblox Corporation.</p>
+        <p>Secure payments powered by <span class="stripe-badge"><i data-lucide="credit-card"></i> Stripe</span></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

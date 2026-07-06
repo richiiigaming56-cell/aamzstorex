@@ -1,0 +1,9 @@
+{
+  "cleanUrls": true,
+  "builds": [
+    { "src": "api/create-checkout-session.js", "use": "@vercel/node" },
+    { "src": "*.html", "use": "@vercel/static" },
+    { "src": "style.css", "use": "@vercel/static" },
+    { "src": "script.js", "use": "@vercel/static" }
+  ]
+}

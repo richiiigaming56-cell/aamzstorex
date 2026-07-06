@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Successful! | Aamz.store</title>
+  
+  <!-- Premium Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- Success Page Specific Styles -->
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      justify-content: center;
+      align-items: center;
+      background: #090613;
+      overflow-x: hidden;
+    }
+    
+    .success-container {
+      text-align: center;
+      background: rgba(18, 13, 34, 0.6);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(0, 242, 254, 0.15);
+      border-radius: 24px;
+      padding: 3.5rem 2.5rem;
+      max-width: 580px;
+      width: 90%;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), 
+                  0 0 40px rgba(0, 242, 254, 0.05);
+      animation: fadeInUp 0.8s ease-out;
+      margin: 2rem 0;
+    }
+    
+    .success-icon-wrap {
+      width: 90px;
+      height: 90px;
+      background: linear-gradient(135deg, #00f2fe, #4facfe);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 2rem;
+      color: #000;
+      box-shadow: 0 0 30px rgba(0, 242, 254, 0.4);
+      animation: pulseGlow 2s infinite;
+    }
+    
+    .success-icon-wrap i {
+      width: 42px;
+      height: 42px;
+    }
+    
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    
+    .success-message {
+      color: #94a3b8;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 2.5rem;
+    }
+    
+    .discord-invite-card {
+      background: rgba(88, 101, 242, 0.1);
+      border: 1px solid rgba(88, 101, 242, 0.3);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 2.5rem;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .discord-logo-wrap {
+      width: 60px;
+      height: 60px;
+      background: #5865F2;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      margin-bottom: 1rem;
+      box-shadow: 0 0 20px rgba(88, 101, 242, 0.4);
+    }
+    
+    .discord-logo-wrap i {
+      width: 32px;
+      height: 32px;
+    }
+    
+    .discord-invite-card h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+    
+    .discord-invite-card p {
+      color: #a5b4fc;
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+      max-width: 380px;
+    }
+    
+    .btn-discord {
+      background: #5865F2;
+      color: #fff;
+      border: none;
+      font-size: 1.1rem;
+      font-weight: 700;
+      padding: 1rem 2rem;
+      border-radius: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(88, 101, 242, 0.3);
+    }
+    
+    .btn-discord:hover {
+      background: #4752C4;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(88, 101, 242, 0.5);
+    }
+    
+    .btn-home {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #94a3b8;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+    
+    .btn-home:hover {
+      color: #00f2fe;
+    }
+    
+    .order-details-card {
+      margin-top: 1.5rem;
+      font-size: 0.85rem;
+      color: #475569;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding-top: 1rem;
+    }
+    
+    @keyframes pulseGlow {
+      0% { box-shadow: 0 0 15px rgba(0, 242, 254, 0.3); }
+      50% { box-shadow: 0 0 30px rgba(0, 242, 254, 0.6); }
+      100% { box-shadow: 0 0 15px rgba(0, 242, 254, 0.3); }
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Decorative Glowing Circles -->
+  <div class="glow-bg">
+    <div class="glow-circle gc-1" style="background: rgba(0, 242, 254, 0.1);"></div>
+    <div class="glow-circle gc-2" style="background: rgba(88, 101, 242, 0.1);"></div>
+  </div>
+
+  <div class="success-container">
+    <div class="success-icon-wrap">
+      <i data-lucide="check-circle-2"></i>
+    </div>
+    
+    <h1>Payment <span class="gradient-text">Received!</span></h1>
+    <p class="success-message">Thank you for your payment. Your transaction has completed successfully. To claim your services, products, or bot setups, please complete the next step below.</p>
+    
+    <!-- Action Discord Join Invite -->
+    <div class="discord-invite-card">
+      <div class="discord-logo-wrap">
+        <i data-lucide="message-square"></i>
+      </div>
+      <h3>Join the Discord & Open a Ticket</h3>
+      <p>Connect to our community server and open a support/delivery ticket. Send your Stripe invoice or name, and our team will fulfill your order instantly.</p>
+      
+      <a href="https://discord.gg/PuMfsUxKrD" target="_blank" class="btn-discord">
+        <i data-lucide="external-link"></i> Join Server to Claim
+      </a>
+    </div>
+    
+    <a href="index.html" class="btn-home">
+      <i data-lucide="arrow-left"></i> Return to Store
+    </a>
+    
+    <div class="order-details-card" id="session-info-wrap" style="display:none;">
+      Stripe Checkout ID: <span id="checkout-session-id"></span>
+    </div>
+  </div>
+
+  <script>
+    // Initialize icons
+    lucide.createIcons();
+    
+    // Parse URL parameter to show stripe session ID if present
+    const urlParams = new URLSearchParams(window.location.search);
+    const sessionId = urlParams.get('session_id');
+    if (sessionId) {
+      document.getElementById('session-info-wrap').style.display = 'block';
+      document.getElementById('checkout-session-id').innerText = sessionId.substring(0, 24) + '...';
+    }
+  </script>
+</body>
+</html>
