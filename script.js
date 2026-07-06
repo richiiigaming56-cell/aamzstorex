@@ -321,11 +321,18 @@ function highlightNavbarActiveLink() {
 
 // Refresh Static Pricing (Bots and Servers) values in HTML DOM safely
 function refreshStorefrontPrices() {
-  // Update Bot Card Prices in HTML
+   // Update Bot Card Prices in HTML (both the big headline price AND the footer "Total:" price)
   setDomText('#price-bot-league', `$${storeDb['bot-league'] ? storeDb['bot-league'].toFixed(2) : '7.00'}`);
+  setDomText('#card-price-bot-league', `$${storeDb['bot-league'] ? storeDb['bot-league'].toFixed(2) : '7.00'}`);
+
   setDomText('#price-bot-payment', `$${storeDb['bot-payment'] ? storeDb['bot-payment'].toFixed(2) : '6.00'}`);
+  setDomText('#card-price-bot-payment', `$${storeDb['bot-payment'] ? storeDb['bot-payment'].toFixed(2) : '6.00'}`);
+
   setDomText('#price-bot-ai', `$${storeDb['bot-ai'] ? storeDb['bot-ai'].toFixed(2) : '4.00'}`);
+  setDomText('#card-price-bot-ai', `$${storeDb['bot-ai'] ? storeDb['bot-ai'].toFixed(2) : '4.00'}`);
+
   setDomText('#price-bot-custom', `$${storeDb['bot-custom'] ? storeDb['bot-custom'].toFixed(2) : '9.00'}`);
+  setDomText('#card-price-bot-custom', `$${storeDb['bot-custom'] ? storeDb['bot-custom'].toFixed(2) : '9.00'}`);
 
   // Update Host banner buttons
   const host1mBtn = document.querySelector('button[onclick*="bot-host-us-1month"]');
